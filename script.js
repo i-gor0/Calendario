@@ -20,7 +20,7 @@ function generateCalendar(month, year) {
                 <button onclick="nextMonth()">&#10095;</button>
             </div>
             <div class="calendar-grid">
-                <div>Seg</div><div>Ter</div><div>Qua</div><div>Qui</div><div>Sex</div><div>Sab</div><div>Dom</div>
+                <div>Dom</div><div>Seg</div><div>Ter</div><div>Qua</div><div>Qui</div><div>Sex</div><div>Sáb</div>
     `;
 
     for (let i = 0; i < firstDay; i++) {
@@ -32,14 +32,14 @@ function generateCalendar(month, year) {
         if (day === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
             calendarHTML += `<div class="day current-day">${day}</div>`;
         } else {
-            calendarHTML += `<div class="day">${day}</div>`;
+            calendarHTML += `<div class="day">${day}</div>`; 
         }
     }
 
     calendarHTML += `
             </div>
             <div class="calendar-footer">
-                <button onclick="buttonAction()">Feed</button>
+                <button class="button" id="open" onclick="buttonAction()">Feed</button>
             </div>
         </div>
     `;
@@ -59,7 +59,7 @@ function nextMonth() {
     mês_atual++;
     if (mês_atual > 11) {
         mês_atual = 0;
-        Ano_atual++;
+        Ano_atual++
     }
     generateCalendar(mês_atual, Ano_atual);
 }
@@ -68,7 +68,11 @@ function buttonAction() {
     const feedContainer = document.getElementsByClassName("conteiner_feed")[0];
     feedContainer.style.display = "flex";
 }
-function ajustarLargura(input) {
-    input.style.width = `${input.scrollHeight + 5}px`; // Ajusta a largura com um pequeno espaço extra
+
+function closeFeed() {
+    const feedContainer = document.getElementsByClassName("conteiner_feed")[0];
+    feedContainer.style.display = "none";
 }
+
+
 generateCalendar(mês_atual, Ano_atual);

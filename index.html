@@ -10,11 +10,16 @@
     <div class="calendar-container">
         <div id="calendar"></div>
     </div>
-    <aside class="conteiner_feed" style="display: none;">
+    <aside class="conteiner_feed">
         <div>
-            <input type="text" name="feedback" id="feedback" oninput="ajustarLargura(this)" placeholder="feedback..."
-            >
-        </div>
+            <form action="https://api.staticforms.xyz/submit" method="post" id="my-form">
+        <input type="text" name="feedback" id="" placeholder="Seu Nome" autocomplete="off" required>
+        <input type="email" name="email" placeholder="Seu Email" required>
+        <input type="text" name="message" placeholder="feedback..." required>
+        <input type="hidden" name="accessKey" value="5b676c51-9757-4058-addd-d6990b85d789">
+        <button class="button" id="sub" type="submit">Enviar</button>
+        <button class="button" id="close" onclick="closeFeed()">Fechar</button>
+    </form>
     </aside>
 
     <script src="script.js"></script>

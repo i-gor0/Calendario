@@ -88,29 +88,85 @@ body {
     color: #aaa;
     font-style: italic;
 }
-.conteiner_feed{
+.conteiner_feed {
     display: none;
-    background-color: rgb(255, 255, 255);
+    background-color: #fff;
     height: 350px;
     width: 200px;
-    border-radius: 0px 10px 10px 0px;
+    border-radius: 0 10px 10px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
 }
-button {
-    color: #090909;
+
+#my-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Estilos para os inputs */
+#my-form input[type="text"],
+#my-form input[type="email"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#my-form input[type="text"]::placeholder,
+#my-form input[type="email"]::placeholder {
+    color: #999;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
     margin-top: 20px;
-    padding: 5px 20px;
-    font-size: 18px;
-    border-radius: 0.5em;
-    background: #e8e8e8;
+}
+
+.button {
+    --color: #000000;
+    font-family: inherit;
+    display: inline-block;
+    width: 100;
+    height: 2.6em;
+    line-height: 2.5em;
+    overflow: hidden;
     cursor: pointer;
-    border: 1px solid #e8e8e8;
-    transition: all 0.3s;
-    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
-  }
-  
-  button:active {
-    color: #666;
-    box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
-  }
-  
+    font-size: 17px;
+    z-index: 1;
+    color: var(--color);
+    border: 2px solid var(--color);
+    border-radius: 6px;
+    position: relative;
+}
+
+.button::before {
+    position: absolute;
+    content: "";
+    background: var(--color);
+    width: 150px;
+    height: 200px;
+    z-index: -1;
+    border-radius: 50%;
+    transition: 0.3s all;
+    top: 100%;
+    left: 100%;
+}
+
+.button:hover {
+    color: white;
+}
+
+.button:hover::before {
+    top: -30px;
+    left: -30px;
+}
+#open{
+    margin-top: 20px;
+}
+#close{
+    width: 100px;
+}
